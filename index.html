@@ -739,12 +739,13 @@
             right: 0;
             height: 8px;
             background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #ff6b6b);
+            background-size: 200% 100%; /* لتمكين التمرير في الشريط */
             animation: rainbowFlow 3s linear infinite;
         }
 
         @keyframes rainbowFlow {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
         }
 
         .leaderboard-header {
@@ -1201,6 +1202,31 @@
             max-width: 600px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.4);
             animation: celebrationPop 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .close-celebration {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            color: #333;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-celebration:hover {
+            background: rgba(0, 0, 0, 0.3);
+            transform: scale(1.1);
         }
 
         @keyframes celebrationPop {
@@ -1225,6 +1251,210 @@
             font-size: 1.4rem;
             line-height: 1.7;
             margin-bottom: 20px;
+        }
+
+        /* تصميم لعبة ترتيب الرؤية */
+        .vision-puzzle-screen {
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .puzzle-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .puzzle-title {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #ffd700);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShimmer 4s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        .puzzle-subtitle {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .puzzle-container {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.25));
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .puzzle-words {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .word-card {
+            background: linear-gradient(145deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            user-select: none;
+        }
+
+        .word-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+        }
+
+        .word-card:active {
+            transform: scale(0.95);
+        }
+
+        .word-card.selected {
+            background: linear-gradient(145deg, #ffd700, #ffed4e);
+            color: #333;
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .drop-zone {
+            min-height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 3px dashed rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.drag-over {
+            background: rgba(76, 175, 80, 0.2);
+            border-color: #4CAF50;
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .drop-hint {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            margin: auto;
+            font-style: italic;
+        }
+
+        .dropped-word {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dropped-word:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .puzzle-result {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.3), rgba(255, 193, 7, 0.2));
+            border: 2px solid rgba(255, 215, 0, 0.6);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .puzzle-result h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .final-vision {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .puzzle-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .puzzle-btn {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .puzzle-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.5);
+        }
+
+        .puzzle-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .puzzle-btn.secondary {
+            background: linear-gradient(145deg, #ff9800, #f57c00);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+        }
+
+        .puzzle-btn.secondary:hover {
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.5);
+        }
+
+        .puzzle-btn.success {
+            background: linear-gradient(145deg, #ffd700, #ffed4e);
+            color: #333;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .puzzle-btn.success:hover {
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
         }
 
         /* تجاوبية */
@@ -1257,14 +1487,11 @@
     </style>
 </head>
 <body>
-    <!-- الخلفية المتحركة -->
     <div class="animated-bg"></div>
     
-    <!-- الجزيئات المتحركة -->
     <div class="particles" id="particles"></div>
     
     <div class="container">
-        <!-- شاشة الترحيب الجديدة -->
         <div class="welcome-screen" id="welcomeScreen">
             <div class="welcome-hero">
                 <div class="hero-content">
@@ -1337,7 +1564,6 @@
             </div>
         </div>
 
-        <!-- شاشة اللعبة الجديدة -->
         <div class="game-screen" id="gameScreen">
             <div class="game-header">
                 <h1 class="game-title">🎯 رحلة اكتشاف الرؤية ✨</h1>
@@ -1357,7 +1583,6 @@
                 <div class="progress-text" id="progressText">السؤال 1 من 6</div>
             </div>
 
-            <!-- الأسئلة الجديدة -->
             <div class="question-container active" id="question1">
                 <div class="question-header">
                     <div class="question-number">🌟</div>
@@ -1377,7 +1602,7 @@
                 </div>
                 <div class="explanation-section" id="explanation1">
                     <div class="explanation-title">💡 الشرح</div>
-                    <div class="explanation-text">المدرسة تهدف إلى تقديم <strong>"تعليم متطور"</strong> يواكب التطورات الحديثة ويستخدم أفضل الطرق والوسائل التعليمية.</div>
+                    <div class="explanation-text">المدرسة تهدف إلى تقديم **"تعليم متطور"** يواكب التطورات الحديثة ويستخدم أفضل الطرق والوسائل التعليمية.</div>
                 </div>
                 <div class="control-buttons">
                     <button class="control-btn" id="nextBtn1" onclick="nextQuestion(2)">التالي ➡️</button>
@@ -1403,7 +1628,7 @@
                 </div>
                 <div class="explanation-section" id="explanation2">
                     <div class="explanation-title">💡 الشرح</div>
-                    <div class="explanation-text">المدرسة <strong>"يوظف التقانة بكفاءة"</strong> مما يعني الاستخدام الذكي والفعال للتكنولوجيا في جميع جوانب التعليم.</div>
+                    <div class="explanation-text">المدرسة **"يوظف التقانة بكفاءة"** مما يعني الاستخدام الذكي والفعال للتكنولوجيا في جميع جوانب التعليم.</div>
                 </div>
                 <div class="control-buttons">
                     <button class="control-btn" id="nextBtn2" onclick="nextQuestion(3)">التالي ➡️</button>
@@ -1429,7 +1654,7 @@
                 </div>
                 <div class="explanation-section" id="explanation3">
                     <div class="explanation-title">💡 الشرح</div>
-                    <div class="explanation-text">المدرسة تؤمن بـ <strong>"تعلم مستدام"</strong> يستمر مدى الحياة ولا يتوقف عند حدود المنهج الدراسي.</div>
+                    <div class="explanation-text">المدرسة تؤمن بـ **"تعلم مستدام"** يستمر مدى الحياة ولا يتوقف عند حدود المنهج الدراسي.</div>
                 </div>
                 <div class="control-buttons">
                     <button class="control-btn" id="nextBtn3" onclick="nextQuestion(4)">التالي ➡️</button>
@@ -1455,7 +1680,7 @@
                 </div>
                 <div class="explanation-section" id="explanation4">
                     <div class="explanation-title">💡 الشرح</div>
-                    <div class="explanation-text">المدرسة تسعى لبناء <strong>"شراكة مجتمعية"</strong> حقيقية مع المجتمع المحلي لتحقيق أهدافها التعليمية.</div>
+                    <div class="explanation-text">المدرسة تسعى لبناء **"شراكة مجتمعية"** حقيقية مع المجتمع المحلي لتحقيق أهدافها التعليمية.</div>
                 </div>
                 <div class="control-buttons">
                     <button class="control-btn" id="nextBtn4" onclick="nextQuestion(5)">التالي ➡️</button>
@@ -1481,7 +1706,7 @@
                 </div>
                 <div class="explanation-section" id="explanation5">
                     <div class="explanation-title">💡 الشرح</div>
-                    <div class="explanation-text">الشراكة المجتمعية في المدرسة <strong>"فاعلة"</strong> أي نشطة ومؤثرة وتحقق نتائج إيجابية ملموسة.</div>
+                    <div class="explanation-text">الشراكة المجتمعية في المدرسة **"فاعلة"** أي نشطة ومؤثرة وتحقق نتائج إيجابية ملموسة.</div>
                 </div>
                 <div class="control-buttons">
                     <button class="control-btn" id="nextBtn5" onclick="nextQuestion(6)">التالي ➡️</button>
@@ -1507,10 +1732,10 @@
                 </div>
                 <div class="explanation-section" id="explanation6">
                     <div class="explanation-title">💡 الشرح</div>
-                    <div class="explanation-text">كلمة <strong>"مع"</strong> تربط بين عناصر الرؤية وتدل على التكامل والتناغم بين التعليم المتطور والتعلم المستدام والشراكة المجتمعية.</div>
+                    <div class="explanation-text">كلمة **"مع"** تربط بين عناصر الرؤية وتدل على التكامل والتناغم بين التعليم المتطور والتعلم المستدام والشراكة المجتمعية.</div>
                 </div>
                 <div class="control-buttons">
-                    <button class="control-btn" id="nextBtn6" onclick="showFinalResults()">🎉 اكتشف الرؤية!</button>
+                    <button class="control-btn" id="nextBtn6" onclick="showVisionPuzzle()">🧩 رتب الرؤية!</button>
                 </div>
             </div>
 
@@ -1520,7 +1745,41 @@
             </div>
         </div>
 
-        <!-- لوحة الصدارة الجديدة -->
+        <div class="vision-puzzle-screen" id="visionPuzzleScreen" style="display: none;">
+            <div class="container">
+                <div class="puzzle-header">
+                    <h1 class="puzzle-title">🧩 رتب رؤية المدرسة 🌟</h1>
+                    <p class="puzzle-subtitle">اضغط على الكلمات لترتيب رؤية مدرسة أم مالك الأنصارية الصحيحة</p>
+                </div>
+                
+                <div class="puzzle-container">
+                    <div class="puzzle-words" id="puzzleWords">
+                        <div class="word-card" data-word="فاعلة">فاعلة</div>
+                        <div class="word-card" data-word="وشراكة مجتمعية">وشراكة مجتمعية</div>
+                        <div class="word-card" data-word="مع">مع</div>
+                        <div class="word-card" data-word="تعلم مستدام">تعلم مستدام</div>
+                        <div class="word-card" data-word="يوظف التقانة بكفاءة">يوظف التقانة بكفاءة</div>
+                        <div class="word-card" data-word="تعليم متطور">تعليم متطور</div>
+                    </div>
+                    
+                    <div class="drop-zone" id="dropZone">
+                        <div class="drop-hint">اضغط على الكلمات لترتيب الرؤية هنا</div>
+                    </div>
+                    
+                    <div class="puzzle-result" id="puzzleResult" style="display: none;">
+                        <h3>🎯 الرؤية الكاملة:</h3>
+                        <div class="final-vision">"تعليم متطور يوظف التقانة بكفاءة مع تعلم مستدام وشراكة مجتمعية فاعلة"</div>
+                    </div>
+                    
+                    <div class="puzzle-controls">
+                        <button class="puzzle-btn" id="checkPuzzleBtn" onclick="checkPuzzleOrder()" disabled>✅ تحقق من الترتيب</button>
+                        <button class="puzzle-btn secondary" onclick="resetPuzzle()">🔄 إعادة ترتيب</button>
+                        <button class="puzzle-btn success" id="continueToCelebration" onclick="showFinalCelebration()" style="display: none;">🎉 متابعة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="leaderboard-screen" id="leaderboardScreen">
             <div class="leaderboard-container">
                 <div class="leaderboard-header">
@@ -1579,13 +1838,13 @@
         </div>
     </div>
 
-    <!-- رسالة الاحتفال -->
     <div class="celebration-overlay" id="celebrationOverlay">
         <div class="celebration-card">
+            <button class="close-celebration" onclick="closeCelebration()">✕</button>
             <div class="celebration-title">🎉 تهانينا! 🎉</div>
             <div class="celebration-text">
                 لقد اكتشفت رؤية مدرسة أم مالك الأنصارية للبنات بنجاح!<br>
-                <strong>أحسنت! 👏</strong>
+                **أحسنت! 👏**
             </div>
             <div style="margin-top: 30px;">
                 <button class="control-btn restart" onclick="restartGame()">🔄 العب مرة أخرى</button>
@@ -1746,8 +2005,189 @@
             document.getElementById('scoreDisplay').textContent = `النقاط: ${score} / ${totalQuestions}`;
         }
 
-        // إظهار النتائج النهائية
-        function showFinalResults() {
+        // إظهار لعبة ترتيب الرؤية
+        function showVisionPuzzle() {
+            document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('visionPuzzleScreen').style.display = 'block';
+            
+            // خلط الكلمات
+            shufflePuzzleWords();
+            initializeDragAndDrop();
+        }
+
+        // خلط كلمات الأحجية
+        function shufflePuzzleWords() {
+            const wordsContainer = document.getElementById('puzzleWords');
+            const words = Array.from(wordsContainer.children);
+            
+            // خلط الكلمات
+            for (let i = words.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [words[i], words[j]] = [words[j], words[i]];
+            }
+            
+            // إعادة ترتيب العناصر في DOM
+            words.forEach(word => wordsContainer.appendChild(word));
+        }
+
+        // تهيئة نظام الضغط للاختيار
+        function initializeDragAndDrop() {
+            const wordCards = document.querySelectorAll('.word-card');
+            
+            wordCards.forEach(card => {
+                card.addEventListener('click', handleWordClick);
+            });
+        }
+
+        let selectedWord = null;
+
+        function handleWordClick() {
+            // إذا كانت هناك كلمة محددة مسبقاً، قم بإلغاء تحديدها
+            if (selectedWord) {
+                selectedWord.classList.remove('selected');
+            }
+            
+            // تحديد الكلمة الحالية
+            selectedWord = this;
+            this.classList.add('selected');
+            
+            // إضافة الكلمة إلى منطقة الترتيب
+            addWordToDropZone(this);
+        }
+
+        function addWordToDropZone(wordElement) {
+            const dropZone = document.getElementById('dropZone');
+            
+            // إنشاء عنصر جديد في منطقة الترتيب
+            const droppedWord = document.createElement('div');
+            droppedWord.className = 'dropped-word';
+            droppedWord.textContent = wordElement.textContent;
+            droppedWord.dataset.word = wordElement.dataset.word;
+            
+            // إضافة إمكانية النقر للإزالة
+            droppedWord.addEventListener('click', function() {
+                this.remove();
+                wordElement.style.display = 'block';
+                wordElement.classList.remove('selected');
+                if (selectedWord === wordElement) {
+                    selectedWord = null;
+                }
+                updatePuzzleButtons();
+                
+                // إظهار النصيحة إذا لم تعد هناك كلمات
+                const remainingWords = dropZone.querySelectorAll('.dropped-word');
+                if (remainingWords.length === 0) {
+                    const dropHint = dropZone.querySelector('.drop-hint');
+                    if (dropHint) {
+                        dropHint.style.display = 'block';
+                    }
+                }
+            });
+            
+            // إخفاء النصيحة والكلمة الأصلية
+            const dropHint = dropZone.querySelector('.drop-hint');
+            if (dropHint) {
+                dropHint.style.display = 'none';
+            }
+            
+            dropZone.appendChild(droppedWord);
+            wordElement.style.display = 'none';
+            wordElement.classList.remove('selected');
+            selectedWord = null;
+            
+            updatePuzzleButtons();
+        }
+
+        // تحديث أزرار الأحجية
+        function updatePuzzleButtons() {
+            const dropZone = document.getElementById('dropZone');
+            const droppedWords = dropZone.querySelectorAll('.dropped-word');
+            const checkBtn = document.getElementById('checkPuzzleBtn');
+            
+            checkBtn.disabled = droppedWords.length !== 6;
+        }
+
+        // فحص ترتيب الأحجية
+        function checkPuzzleOrder() {
+            const dropZone = document.getElementById('dropZone');
+            const droppedWords = Array.from(dropZone.querySelectorAll('.dropped-word'));
+            
+            const correctOrder = [
+                'تعليم متطور',
+                'يوظف التقانة بكفاءة', 
+                'مع',
+                'تعلم مستدام',
+                'وشراكة مجتمعية',
+                'فاعلة'
+            ];
+            
+            const userOrder = droppedWords.map(word => word.dataset.word);
+            const isCorrect = JSON.stringify(userOrder) === JSON.stringify(correctOrder);
+            
+            if (isCorrect) {
+                // إظهار النتيجة الصحيحة
+                document.getElementById('puzzleResult').style.display = 'block';
+                document.getElementById('checkPuzzleBtn').style.display = 'none';
+                document.getElementById('continueToCelebration').style.display = 'inline-block';
+                
+                // تأثير بصري للنجاح
+                droppedWords.forEach((word, index) => {
+                    setTimeout(() => {
+                        word.style.background = 'linear-gradient(145deg, #ffd700, #ffed4e)';
+                        word.style.color = '#333';
+                        word.style.transform = 'scale(1.05)';
+                    }, index * 200);
+                });
+            } else {
+                // رسالة خطأ
+                const errorMsg = document.createElement('div');
+                errorMsg.style.cssText = `
+                    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                    background: linear-gradient(145deg, #f44336, #d32f2f);
+                    color: white; padding: 20px 30px; border-radius: 20px;
+                    font-size: 1.2rem; font-weight: bold; z-index: 1001;
+                    box-shadow: 0 15px 35px rgba(244, 67, 54, 0.5);
+                    text-align: center;
+                `;
+                errorMsg.innerHTML = '❌ الترتيب غير صحيح! حاول مرة أخرى';
+                document.body.appendChild(errorMsg);
+                
+                setTimeout(() => {
+                    if (document.body.contains(errorMsg)) {
+                        document.body.removeChild(errorMsg);
+                    }
+                }, 3000);
+            }
+        }
+
+        // إعادة تعيين الأحجية
+        function resetPuzzle() {
+            const dropZone = document.getElementById('dropZone');
+            const wordCards = document.querySelectorAll('.word-card');
+            
+            // إظهار جميع الكلمات
+            wordCards.forEach(card => {
+                card.style.display = 'block';
+                card.style.background = 'linear-gradient(145deg, #667eea, #764ba2)';
+                card.style.color = 'white';
+                card.style.transform = 'none';
+            });
+            
+            // مسح منطقة الإسقاط
+            dropZone.innerHTML = '<div class="drop-hint">اضغط على الكلمات لترتيب الرؤية هنا</div>';
+            
+            // إخفاء النتيجة
+            document.getElementById('puzzleResult').style.display = 'none';
+            document.getElementById('checkPuzzleBtn').style.display = 'inline-block';
+            document.getElementById('continueToCelebration').style.display = 'none';
+            
+            // خلط الكلمات مرة أخرى
+            shufflePuzzleWords();
+            updatePuzzleButtons();
+        }
+
+        // إظهار الاحتفال النهائي
+        function showFinalCelebration() {
             clearInterval(timerInterval);
             
             // حساب النقاط النهائية مع مكافأة السرعة
@@ -1797,16 +2237,26 @@
                 }, 500);
             }
             
-            // إظهار الاحتفال
+            // إظهار لوحة الصدارة مباشرة
             setTimeout(() => {
-                document.getElementById('celebrationOverlay').classList.add('show');
-            }, 1000);
+                document.getElementById('visionPuzzleScreen').style.display = 'none';
+                displayLeaderboard();
+                document.getElementById('leaderboardScreen').style.display = 'block';
+                document.getElementById('backToWelcomeBtn').style.display = 'inline-block';
+                document.getElementById('backToGameBtn').style.display = 'none';
+                document.getElementById('backToWelcomeBtn').innerHTML = '🏠 العودة للرئيسية';
+            }, speedBonus > 0 ? 2000 : 500);
+        }
+
+        // إغلاق رسالة الاحتفال
+        function closeCelebration() {
+            document.getElementById('celebrationOverlay').classList.remove('show');
         }
 
         // حفظ النتيجة في لوحة الصدارة
         function saveToLeaderboard(speedBonus = 0) {
             const elapsed = Math.floor((Date.now() - startTime) / 1000);
-            const finalScore = score + speedBonus;
+            const finalScore = score * 100 + speedBonus; // نظام نقاط أكثر واقعية
             
             let leaderboard = JSON.parse(localStorage.getItem('schoolVisionLeaderboard') || '[]');
             
@@ -1923,7 +2373,7 @@
                             </div>
                             <div class="player-stats">
                                 <div class="stat-item">⏱️ ${timeDisplay}</div>
-                                <div class="stat-item">✅ ${player.correctAnswers}/6</div>
+                                <div class="stat-item">✅ ${player.correctAnswers}/${totalQuestions}</div>
                                 ${player.speedBonus > 0 ? `<div class="stat-item speed-bonus">⚡ +${player.speedBonus}</div>` : ''}
                                 <div class="stat-item">📅 ${player.date}</div>
                             </div>
@@ -2014,7 +2464,6 @@
         }
 
 
-
         // إعادة تشغيل اللعبة
         function restartGame() {
             // إعادة تعيين المتغيرات
@@ -2030,6 +2479,7 @@
             document.getElementById('celebrationOverlay').classList.remove('show');
             document.getElementById('gameScreen').style.display = 'none';
             document.getElementById('leaderboardScreen').style.display = 'none';
+            document.getElementById('visionPuzzleScreen').style.display = 'none';
             
             // إعادة تعيين الأسئلة
             for (let i = 1; i <= totalQuestions; i++) {
@@ -2045,6 +2495,9 @@
                 document.getElementById(`explanation${i}`).classList.remove('show');
                 document.getElementById(`nextBtn${i}`).classList.remove('show');
             }
+            
+            // إعادة تعيين لعبة الترتيب
+            resetPuzzle();
             
             // إظهار شاشة الترحيب
             document.getElementById('welcomeScreen').style.display = 'flex';
@@ -2063,8 +2516,7 @@
 
         // تهيئة التطبيق
         document.addEventListener('DOMContentLoaded', function() {
-            // حذف البيانات المحفوظة
-            localStorage.removeItem('schoolVisionLeaderboard');
+            // ** تم إزالة السطر: localStorage.removeItem('schoolVisionLeaderboard'); **
             
             createParticles();
             
@@ -2074,7 +2526,10 @@
             // تحديث التقدم والنقاط
             updateProgress();
             updateScore();
+            
+            // عند التحميل، تأكد من تحديث لوحة الصدارة لعرض النتائج المحفوظة
+            displayLeaderboard(currentFilter);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9896e270f5504e98',t:'MTc1OTYwNDAzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>

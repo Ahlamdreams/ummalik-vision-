@@ -1832,8 +1832,8 @@
     <script>
         // *** الجزء الذي تم تعديله ليتناسب مع Google Apps Script ***
 
-        // ** 🔑 تم استبدال الرابط برابط Web App URL الذي قدمته: **
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWTioBS9TJH5iMKTdHhVigRpJsNQuc6mlMyT_-RfCMF0aP-xfg2p1-W4h7EVMy16szfg/exec'; 
+        // ** 🔑 تم تحديث الرابط برابط Web App URL الجديد الذي قدمته: **
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHehMQJPsLjCXt7ycRBQjzmdN2m23XhzAMqXt2t5QYpptkRK_Wxn46BWMBZycP-Xu4Tw/exec'; 
 
         let currentQuestion = 1;
         let score = 0;
@@ -1843,7 +1843,7 @@
         let timerInterval = null;
         let currentFilter = 'all';
         const totalQuestions = 6;
-        let cachedLeaderboard = []; // لتخزين النتائج مؤقتاً بعد التحميل
+        let cachedLeaderboard = []; 
 
         // إنشاء الجزيئات المتحركة
         function createParticles() {
@@ -1980,8 +1980,6 @@
         function updateScore() {
             document.getElementById('scoreDisplay').textContent = `النقاط: ${score} / ${totalQuestions}`;
         }
-
-        // ... (بقية دوال الأحجية تبقى كما هي) ...
 
         // إظهار لعبة ترتيب الرؤية (الوظيفة تبقى كما هي)
         function showVisionPuzzle() {
@@ -2259,7 +2257,7 @@
                     displayLeaderboardUI(cachedLeaderboard, currentFilter);
                 } else {
                     console.error('Error loading leaderboard:', result.message);
-                    leadersList.innerHTML = `<div class="empty-state"><div class="empty-icon">⚠️</div><div class="empty-title">خطأ في التحميل</div><div class="empty-subtitle">حدث خطأ أثناء جلب البيانات. قد لا يكون رابط API صحيحاً أو لم يتم إعداد Apps Script بشكل صحيح.</div></div>`;
+                    leadersList.innerHTML = `<div class="empty-state"><div class="empty-icon">⚠️</div><div class="empty-title">خطأ في التحميل</div><div class="empty-subtitle">حدث خطأ أثناء جلب البيانات. تأكد من إعداد Apps Script بشكل صحيح والسماح بالوصول لـ **أي شخص**.</div></div>`;
                 }
             })
             .catch(error => {

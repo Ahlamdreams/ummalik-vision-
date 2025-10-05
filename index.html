@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>رحلة اكتشاف رؤية مدرسة أم مالك الأنصارية</title>
     <style>
+        /* (*** أكواد CSS هنا ***) */
         body {
             box-sizing: border-box;
             font-family: 'Amiri', 'Cairo', 'Segoe UI', sans-serif;
@@ -16,7 +17,6 @@
             overflow-x: hidden;
         }
 
-        /* خلفية متحركة مبسطة */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -30,7 +30,6 @@
                 radial-gradient(circle at 50% 50%, rgba(255, 218, 185, 0.2) 0%, transparent 50%);
         }
 
-        /* جزيئات متحركة مبسطة */
         .particles {
             position: fixed;
             top: 0;
@@ -65,7 +64,6 @@
             z-index: 1;
         }
 
-        /* شاشة الترحيب الجديدة */
         .welcome-screen {
             display: flex;
             flex-direction: column;
@@ -150,7 +148,6 @@
             color: #2c3e50;
         }
 
-        /* قسم إدخال البيانات الجديد */
         .user-input-section {
             background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(15px);
@@ -202,7 +199,6 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        /* أزرار نوع المستخدم الجديدة */
         .user-types {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -281,7 +277,6 @@
             color: #34495e;
         }
 
-        /* زر البداية الجديد */
         .start-button {
             background: linear-gradient(145deg, #ff6b6b, #ee5a24);
             color: white;
@@ -327,7 +322,6 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        /* معلومات اللعبة */
         .game-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -373,7 +367,6 @@
             color: #34495e;
         }
 
-        /* زر لوحة الصدارة */
         .leaderboard-btn {
             background: linear-gradient(145deg, #9c27b0, #7b1fa2);
             color: white;
@@ -393,7 +386,6 @@
             box-shadow: 0 15px 35px rgba(156, 39, 176, 0.6);
         }
 
-        /* شاشة اللعبة الجديدة */
         .game-screen {
             display: none;
             min-height: 100vh;
@@ -447,7 +439,6 @@
             justify-content: center;
         }
 
-        /* شريط التقدم الجديد */
         .progress-section {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(20px);
@@ -490,7 +481,6 @@
             color: #2c3e50;
         }
 
-        /* بطاقات الأسئلة الجديدة */
         .question-container {
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.2));
             backdrop-filter: blur(15px);
@@ -559,7 +549,6 @@
             color: #2c3e50;
         }
 
-        /* خيارات الإجابة الجديدة */
         .answers-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -634,7 +623,6 @@
             75% { transform: translateX(15px); }
         }
 
-        /* قسم الشرح */
         .explanation-section {
             background: linear-gradient(145deg, rgba(156, 39, 176, 0.3), rgba(123, 31, 162, 0.2));
             border: 2px solid rgba(156, 39, 176, 0.5);
@@ -672,7 +660,6 @@
             color: #2c3e50;
         }
 
-        /* أزرار التحكم */
         .control-buttons {
             display: flex;
             justify-content: center;
@@ -712,7 +699,6 @@
             box-shadow: 0 15px 35px rgba(255, 152, 0, 0.5);
         }
 
-        /* لوحة الصدارة الجديدة */
         .leaderboard-screen {
             display: none;
             min-height: 100vh;
@@ -739,7 +725,7 @@
             right: 0;
             height: 8px;
             background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #ff6b6b);
-            background-size: 200% 100%; /* لتمكين التمرير في الشريط */
+            background-size: 200% 100%;
             animation: rainbowFlow 3s linear infinite;
         }
 
@@ -801,7 +787,6 @@
             50% { background-position: 100% 50%; }
         }
 
-        /* إحصائيات لوحة الصدارة */
         .leaderboard-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -840,7 +825,6 @@
             color: #2c3e50;
         }
 
-        /* أزرار التصفية */
         .filter-buttons {
             display: flex;
             justify-content: center;
@@ -873,7 +857,6 @@
             box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
         }
 
-        /* قائمة المتصدرين */
         .leaders-list {
             max-height: 600px;
             overflow-y: auto;
@@ -1063,7 +1046,6 @@
             font-weight: bold;
         }
 
-        /* شاشة فارغة */
         .empty-state {
             text-align: center;
             padding: 80px 40px;
@@ -1099,7 +1081,6 @@
             color: #34495e;
         }
 
-        /* أزرار التحكم في لوحة الصدارة */
         .leaderboard-controls {
             display: flex;
             justify-content: center;
@@ -1144,7 +1125,6 @@
             box-shadow: 0 15px 35px rgba(255, 152, 0, 0.5);
         }
 
-        /* منطقة النقاط والوقت */
         .score-timer {
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
             backdrop-filter: blur(20px);
@@ -1168,7 +1148,6 @@
             color: #2c3e50;
         }
 
-        /* رسائل الاحتفال */
         .celebration-overlay {
             position: fixed;
             top: 0;
@@ -1253,7 +1232,6 @@
             margin-bottom: 20px;
         }
 
-        /* تصميم لعبة ترتيب الرؤية */
         .vision-puzzle-screen {
             min-height: 100vh;
             padding: 20px 0;
@@ -1457,7 +1435,6 @@
             box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
         }
 
-        /* تجاوبية */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
@@ -1818,10 +1795,9 @@
                 <div class="leaders-list" id="leadersList">
                     <div class="empty-state">
                         <div class="empty-icon">🎯</div>
-                        <div class="empty-title">لا توجد نتائج بعد</div>
+                        <div class="empty-title">يتم تحميل النتائج...</div>
                         <div class="empty-subtitle">
-                            كن أول من يحقق نتيجة رائعة!<br>
-                            ابدأ اللعبة واكتشف رؤية المدرسة
+                            قد يستغرق التحميل من السحابة بضع ثوانٍ 🔄
                         </div>
                     </div>
                 </div>
@@ -1854,7 +1830,11 @@
     </div>
 
     <script>
-        // متغيرات اللعبة
+        // *** الجزء الذي تم تعديله ليتناسب مع Google Apps Script ***
+
+        // ** 🔑 تم استبدال الرابط برابط Web App URL الذي قدمته: **
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzWTioBS9TJH5iMKTdHhVigRpJsNQuc6mlMyT_-RfCMF0aP-xfg2p1-W4h7EVMy16szfg/exec'; 
+
         let currentQuestion = 1;
         let score = 0;
         let playerName = '';
@@ -1863,18 +1843,19 @@
         let timerInterval = null;
         let currentFilter = 'all';
         const totalQuestions = 6;
+        let cachedLeaderboard = []; // لتخزين النتائج مؤقتاً بعد التحميل
 
         // إنشاء الجزيئات المتحركة
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 8; // تقليل العدد إلى 8 فقط
+            const particleCount = 8;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 30 + 's';
-                particle.style.animationDuration = '30s'; // ثابت لتحسين الأداء
+                particle.style.animationDuration = '30s';
                 particlesContainer.appendChild(particle);
             }
         }
@@ -1883,15 +1864,12 @@
         function selectUserType(type) {
             userType = type;
             
-            // إزالة التحديد من جميع البطاقات
             document.querySelectorAll('.user-type-card').forEach(card => {
                 card.classList.remove('selected');
             });
             
-            // إضافة التحديد للبطاقة المختارة
             document.getElementById(type + 'Card').classList.add('selected');
             
-            // تحديث حالة زر البداية
             checkStartButtonState();
         }
 
@@ -1914,7 +1892,6 @@
             playerName = document.getElementById('playerName').value.trim();
             if (playerName.length < 2 || !userType) return;
 
-            // تحديد الرمز حسب نوع المستخدم
             let userIcon = '';
             let userLabel = '';
             switch(userType) {
@@ -1958,7 +1935,7 @@
             }, 1000);
         }
 
-        // اختيار الإجابة
+        // اختيار الإجابة (الوظيفة تبقى كما هي)
         function selectAnswer(questionNum, visionPart, isCorrect) {
             const buttons = document.querySelectorAll(`#question${questionNum} .answer-option`);
             
@@ -1975,14 +1952,13 @@
                 score++;
             }
 
-            // إظهار الشرح
             document.getElementById(`explanation${questionNum}`).classList.add('show');
             document.getElementById(`nextBtn${questionNum}`).classList.add('show');
 
             updateScore();
         }
 
-        // الانتقال للسؤال التالي
+        // الانتقال للسؤال التالي (الوظيفة تبقى كما هي)
         function nextQuestion(nextNum) {
             document.getElementById(`question${currentQuestion}`).classList.remove('active');
             
@@ -1993,47 +1969,45 @@
             }
         }
 
-        // تحديث شريط التقدم
+        // تحديث شريط التقدم (الوظيفة تبقى كما هي)
         function updateProgress() {
             const progress = (currentQuestion / totalQuestions) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
             document.getElementById('progressText').textContent = `السؤال ${currentQuestion} من ${totalQuestions}`;
         }
 
-        // تحديث النقاط
+        // تحديث النقاط (الوظيفة تبقى كما هي)
         function updateScore() {
             document.getElementById('scoreDisplay').textContent = `النقاط: ${score} / ${totalQuestions}`;
         }
 
-        // إظهار لعبة ترتيب الرؤية
+        // ... (بقية دوال الأحجية تبقى كما هي) ...
+
+        // إظهار لعبة ترتيب الرؤية (الوظيفة تبقى كما هي)
         function showVisionPuzzle() {
             document.getElementById('gameScreen').style.display = 'none';
             document.getElementById('visionPuzzleScreen').style.display = 'block';
             
-            // خلط الكلمات
             shufflePuzzleWords();
             initializeDragAndDrop();
         }
 
-        // خلط كلمات الأحجية
+        // خلط كلمات الأحجية (الوظيفة تبقى كما هي)
         function shufflePuzzleWords() {
             const wordsContainer = document.getElementById('puzzleWords');
             const words = Array.from(wordsContainer.children);
             
-            // خلط الكلمات
             for (let i = words.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [words[i], words[j]] = [words[j], words[i]];
             }
             
-            // إعادة ترتيب العناصر في DOM
             words.forEach(word => wordsContainer.appendChild(word));
         }
 
-        // تهيئة نظام الضغط للاختيار
+        // تهيئة نظام الضغط للاختيار (الوظيفة تبقى كما هي)
         function initializeDragAndDrop() {
             const wordCards = document.querySelectorAll('.word-card');
-            
             wordCards.forEach(card => {
                 card.addEventListener('click', handleWordClick);
             });
@@ -2042,29 +2016,24 @@
         let selectedWord = null;
 
         function handleWordClick() {
-            // إذا كانت هناك كلمة محددة مسبقاً، قم بإلغاء تحديدها
             if (selectedWord) {
                 selectedWord.classList.remove('selected');
             }
             
-            // تحديد الكلمة الحالية
             selectedWord = this;
             this.classList.add('selected');
             
-            // إضافة الكلمة إلى منطقة الترتيب
             addWordToDropZone(this);
         }
 
         function addWordToDropZone(wordElement) {
             const dropZone = document.getElementById('dropZone');
             
-            // إنشاء عنصر جديد في منطقة الترتيب
             const droppedWord = document.createElement('div');
             droppedWord.className = 'dropped-word';
             droppedWord.textContent = wordElement.textContent;
             droppedWord.dataset.word = wordElement.dataset.word;
             
-            // إضافة إمكانية النقر للإزالة
             droppedWord.addEventListener('click', function() {
                 this.remove();
                 wordElement.style.display = 'block';
@@ -2074,7 +2043,6 @@
                 }
                 updatePuzzleButtons();
                 
-                // إظهار النصيحة إذا لم تعد هناك كلمات
                 const remainingWords = dropZone.querySelectorAll('.dropped-word');
                 if (remainingWords.length === 0) {
                     const dropHint = dropZone.querySelector('.drop-hint');
@@ -2084,7 +2052,6 @@
                 }
             });
             
-            // إخفاء النصيحة والكلمة الأصلية
             const dropHint = dropZone.querySelector('.drop-hint');
             if (dropHint) {
                 dropHint.style.display = 'none';
@@ -2098,7 +2065,6 @@
             updatePuzzleButtons();
         }
 
-        // تحديث أزرار الأحجية
         function updatePuzzleButtons() {
             const dropZone = document.getElementById('dropZone');
             const droppedWords = dropZone.querySelectorAll('.dropped-word');
@@ -2107,7 +2073,6 @@
             checkBtn.disabled = droppedWords.length !== 6;
         }
 
-        // فحص ترتيب الأحجية
         function checkPuzzleOrder() {
             const dropZone = document.getElementById('dropZone');
             const droppedWords = Array.from(dropZone.querySelectorAll('.dropped-word'));
@@ -2125,12 +2090,10 @@
             const isCorrect = JSON.stringify(userOrder) === JSON.stringify(correctOrder);
             
             if (isCorrect) {
-                // إظهار النتيجة الصحيحة
                 document.getElementById('puzzleResult').style.display = 'block';
                 document.getElementById('checkPuzzleBtn').style.display = 'none';
                 document.getElementById('continueToCelebration').style.display = 'inline-block';
                 
-                // تأثير بصري للنجاح
                 droppedWords.forEach((word, index) => {
                     setTimeout(() => {
                         word.style.background = 'linear-gradient(145deg, #ffd700, #ffed4e)';
@@ -2139,7 +2102,6 @@
                     }, index * 200);
                 });
             } else {
-                // رسالة خطأ
                 const errorMsg = document.createElement('div');
                 errorMsg.style.cssText = `
                     position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -2160,12 +2122,10 @@
             }
         }
 
-        // إعادة تعيين الأحجية
         function resetPuzzle() {
             const dropZone = document.getElementById('dropZone');
             const wordCards = document.querySelectorAll('.word-card');
             
-            // إظهار جميع الكلمات
             wordCards.forEach(card => {
                 card.style.display = 'block';
                 card.style.background = 'linear-gradient(145deg, #667eea, #764ba2)';
@@ -2173,24 +2133,20 @@
                 card.style.transform = 'none';
             });
             
-            // مسح منطقة الإسقاط
             dropZone.innerHTML = '<div class="drop-hint">اضغط على الكلمات لترتيب الرؤية هنا</div>';
             
-            // إخفاء النتيجة
             document.getElementById('puzzleResult').style.display = 'none';
             document.getElementById('checkPuzzleBtn').style.display = 'inline-block';
             document.getElementById('continueToCelebration').style.display = 'none';
             
-            // خلط الكلمات مرة أخرى
             shufflePuzzleWords();
             updatePuzzleButtons();
         }
 
-        // إظهار الاحتفال النهائي
+        // إظهار الاحتفال النهائي (تم تعديل حفظ النتيجة للعمل مع API)
         function showFinalCelebration() {
             clearInterval(timerInterval);
             
-            // حساب النقاط النهائية مع مكافأة السرعة
             const elapsed = Math.floor((Date.now() - startTime) / 1000);
             let speedBonus = 0;
             let speedMessage = '';
@@ -2211,10 +2167,9 @@
                 }
             }
             
-            // حفظ النتيجة
-            saveToLeaderboard(speedBonus);
-            
-            // إظهار رسالة مكافأة السرعة
+            const finalScore = score * 100 + speedBonus;
+
+            // إظهار رسالة المكافأة
             if (speedBonus > 0) {
                 setTimeout(() => {
                     const speedMsg = document.createElement('div');
@@ -2237,64 +2192,90 @@
                 }, 500);
             }
             
-            // إظهار لوحة الصدارة مباشرة
-            setTimeout(() => {
-                document.getElementById('visionPuzzleScreen').style.display = 'none';
-                displayLeaderboard();
-                document.getElementById('leaderboardScreen').style.display = 'block';
-                document.getElementById('backToWelcomeBtn').style.display = 'inline-block';
-                document.getElementById('backToGameBtn').style.display = 'none';
-                document.getElementById('backToWelcomeBtn').innerHTML = '🏠 العودة للرئيسية';
-            }, speedBonus > 0 ? 2000 : 500);
+            // حفظ النتيجة في السحابة
+            saveToCloudLeaderboard(finalScore, elapsed, speedBonus).then(() => {
+                // بعد الحفظ بنجاح، أظهر لوحة الصدارة
+                setTimeout(() => {
+                    document.getElementById('visionPuzzleScreen').style.display = 'none';
+                    showLeaderboard();
+                    document.getElementById('backToWelcomeBtn').style.display = 'inline-block';
+                    document.getElementById('backToGameBtn').style.display = 'none';
+                    document.getElementById('backToWelcomeBtn').innerHTML = '🏠 العودة للرئيسية';
+                }, speedBonus > 0 ? 2000 : 500);
+            });
         }
 
-        // إغلاق رسالة الاحتفال
+        // إغلاق رسالة الاحتفال (الوظيفة تبقى كما هي)
         function closeCelebration() {
             document.getElementById('celebrationOverlay').classList.remove('show');
         }
 
-        // حفظ النتيجة في لوحة الصدارة
-        function saveToLeaderboard(speedBonus = 0) {
-            const elapsed = Math.floor((Date.now() - startTime) / 1000);
-            const finalScore = score * 100 + speedBonus; // نظام نقاط أكثر واقعية
-            
-            let leaderboard = JSON.parse(localStorage.getItem('schoolVisionLeaderboard') || '[]');
-            
-            leaderboard.push({
+        // *** دالة الحفظ الجديدة (تتواصل مع Google Apps Script) ***
+        function saveToCloudLeaderboard(finalScore, elapsed, speedBonus) {
+            const data = {
+                action: 'SAVE',
                 name: playerName,
                 userType: userType,
                 score: finalScore,
                 correctAnswers: score,
                 time: elapsed,
-                speedBonus: speedBonus,
-                date: new Date().toLocaleDateString('ar-SA')
-            });
-            
-            // ترتيب حسب النقاط ثم الوقت
-            leaderboard.sort((a, b) => {
-                if (b.score !== a.score) {
-                    return b.score - a.score;
+                speedBonus: speedBonus
+            };
+
+            return fetch(SCRIPT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 'Success') {
+                    console.log('Score saved successfully to Google Sheets.');
+                } else {
+                    console.error('Error saving score:', result.message);
                 }
-                return a.time - b.time;
+            })
+            .catch(error => {
+                console.error('Network or fetch error:', error);
             });
-            
-            // الاحتفاظ بأفضل 20 نتيجة
-            leaderboard = leaderboard.slice(0, 20);
-            
-            localStorage.setItem('schoolVisionLeaderboard', JSON.stringify(leaderboard));
+        }
+        
+        // *** دالة تحميل لوحة الصدارة الجديدة (تتواصل مع Google Apps Script) ***
+        function loadLeaderboardFromCloud() {
+            const leadersList = document.getElementById('leadersList');
+            leadersList.innerHTML = `<div class="empty-state"><div class="empty-icon">🔄</div><div class="empty-title">يتم تحميل النتائج...</div><div class="empty-subtitle">الرجاء الانتظار قليلاً ريثما يتم جلب البيانات من السحابة.</div></div>`;
+
+            const data = { action: 'LOAD' };
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 'Success' && result.leaderboard) {
+                    cachedLeaderboard = result.leaderboard;
+                    displayLeaderboardUI(cachedLeaderboard, currentFilter);
+                } else {
+                    console.error('Error loading leaderboard:', result.message);
+                    leadersList.innerHTML = `<div class="empty-state"><div class="empty-icon">⚠️</div><div class="empty-title">خطأ في التحميل</div><div class="empty-subtitle">حدث خطأ أثناء جلب البيانات. قد لا يكون رابط API صحيحاً أو لم يتم إعداد Apps Script بشكل صحيح.</div></div>`;
+                }
+            })
+            .catch(error => {
+                console.error('Network or fetch error:', error);
+                leadersList.innerHTML = `<div class="empty-state"><div class="empty-icon">🚫</div><div class="empty-title">فشل الاتصال</div><div class="empty-subtitle">تعذر الاتصال بخدمة حفظ النتائج (Apps Script). تأكد من نشر الخدمة بشكل صحيح والسماح بالوصول لـ **أي شخص**.</div></div>`;
+            });
         }
 
-        // عرض لوحة الصدارة
-        function displayLeaderboard(filterType = 'all') {
-            let leaderboard = JSON.parse(localStorage.getItem('schoolVisionLeaderboard') || '[]');
+        // عرض لوحة الصدارة باستخدام البيانات المُخزنة مؤقتًا (UI)
+        function displayLeaderboardUI(leaderboardData, filterType = 'all') {
             
-            // تصفية البيانات
-            let filteredData = leaderboard;
+            let filteredData = leaderboardData;
             if (filterType !== 'all') {
-                filteredData = leaderboard.filter(player => player.userType === filterType);
+                filteredData = leaderboardData.filter(player => player.userType === filterType);
             }
             
-            // تحديث الإحصائيات
             updateLeaderboardStats(filteredData);
             
             const leadersList = document.getElementById('leadersList');
@@ -2319,7 +2300,6 @@
                     if (index < 3) item.classList.add('top-rank');
                     if (index === 0) item.classList.add('champion');
                     
-                    // تحديد نوع الشارة
                     let badgeClass = 'regular';
                     let rankIcon = index + 1;
                     if (index === 0) {
@@ -2333,12 +2313,12 @@
                         rankIcon = '🥉';
                     }
                     
-                    // تحويل الوقت
-                    const minutes = Math.floor(player.time / 60);
-                    const seconds = player.time % 60;
+                    // تأكد أن player.time هو رقم صحيح قبل الحساب
+                    const timeInSeconds = parseInt(player.time) || 0;
+                    const minutes = Math.floor(timeInSeconds / 60);
+                    const seconds = timeInSeconds % 60;
                     const timeDisplay = `${minutes}:${seconds.toString().padStart(2, '0')}`;
                     
-                    // تحديد رمز المستخدم
                     let userIcon = '👤';
                     let userLabel = '';
                     let userBadgeColor = 'rgba(255, 255, 255, 0.2)';
@@ -2393,11 +2373,19 @@
             }
         }
 
-        // تحديث إحصائيات لوحة الصدارة
+        // دالة عرض لوحة الصدارة الرئيسية (تحدد ما إذا كان يجب التحميل أو العرض من الذاكرة المؤقتة)
+        function displayLeaderboard(filterType = 'all') {
+            currentFilter = filterType;
+            // دائماً أعد التحميل من السحابة في حال طلبها، لضمان تحديث النتائج
+            loadLeaderboardFromCloud();
+        }
+
+        // تحديث إحصائيات لوحة الصدارة (الوظيفة تبقى كما هي)
         function updateLeaderboardStats(data) {
             const totalPlayers = data.length;
             const averageScore = totalPlayers > 0 ? Math.round(data.reduce((sum, p) => sum + p.score, 0) / totalPlayers) : 0;
-            const perfectScores = data.filter(p => p.correctAnswers === 6).length;
+            // نتيجة مثالية هي 6 إجابات صحيحة (600 نقطة) بالإضافة إلى أي مكافأة سرعة.
+            const perfectScores = data.filter(p => p.correctAnswers === 6).length; 
             const speedChampions = data.filter(p => p.speedBonus >= 75).length;
             
             document.getElementById('leaderboardStats').innerHTML = `
@@ -2420,7 +2408,7 @@
             `;
         }
 
-        // تصفية لوحة الصدارة
+        // تصفية لوحة الصدارة (تم تعديلها للعمل مع عرض واجهة المستخدم)
         function filterLeaderboard(type) {
             currentFilter = type;
             
@@ -2429,44 +2417,46 @@
             });
             event.target.classList.add('active');
             
-            displayLeaderboard(type);
+            // استخدم البيانات المخزنة مؤقتًا للعرض السريع
+            displayLeaderboardUI(cachedLeaderboard, type);
         }
 
         // إظهار لوحة الصدارة من الترحيب
         function showWelcomeLeaderboard() {
-            displayLeaderboard();
+            displayLeaderboard('all'); // ابدأ بالتحميل وعرض الكل
             document.getElementById('welcomeScreen').style.display = 'none';
             document.getElementById('leaderboardScreen').style.display = 'block';
             document.getElementById('backToWelcomeBtn').style.display = 'inline-block';
             document.getElementById('backToGameBtn').style.display = 'none';
         }
 
-        // إظهار لوحة الصدارة من اللعبة
+        // إظهار لوحة الصدارة من اللعبة (تم تعديلها لاستدعاء التحميل مرة أخرى لتحديث النتائج)
         function showLeaderboard() {
-            displayLeaderboard();
+             // إعادة تحميل النتائج للتأكد من ظهور النتيجة الجديدة
+            displayLeaderboard('all'); 
             document.getElementById('celebrationOverlay').classList.remove('show');
             document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('visionPuzzleScreen').style.display = 'none';
             document.getElementById('leaderboardScreen').style.display = 'block';
             document.getElementById('backToWelcomeBtn').style.display = 'none';
             document.getElementById('backToGameBtn').style.display = 'inline-block';
         }
 
-        // إخفاء لوحة الصدارة
+        // إخفاء لوحة الصدارة (الوظيفة تبقى كما هي)
         function hideLeaderboard() {
             document.getElementById('leaderboardScreen').style.display = 'none';
             document.getElementById('gameScreen').style.display = 'block';
         }
 
-        // العودة للترحيب
+        // العودة للترحيب (الوظيفة تبقى كما هي)
         function backToWelcome() {
             document.getElementById('leaderboardScreen').style.display = 'none';
             document.getElementById('welcomeScreen').style.display = 'flex';
         }
 
 
-        // إعادة تشغيل اللعبة
+        // إعادة تشغيل اللعبة (الوظيفة تبقى كما هي)
         function restartGame() {
-            // إعادة تعيين المتغيرات
             currentQuestion = 1;
             score = 0;
             userType = '';
@@ -2475,13 +2465,11 @@
                 clearInterval(timerInterval);
             }
             
-            // إخفاء جميع الشاشات
             document.getElementById('celebrationOverlay').classList.remove('show');
             document.getElementById('gameScreen').style.display = 'none';
             document.getElementById('leaderboardScreen').style.display = 'none';
             document.getElementById('visionPuzzleScreen').style.display = 'none';
             
-            // إعادة تعيين الأسئلة
             for (let i = 1; i <= totalQuestions; i++) {
                 const questionContainer = document.getElementById(`question${i}`);
                 questionContainer.classList.remove('active');
@@ -2496,39 +2484,28 @@
                 document.getElementById(`nextBtn${i}`).classList.remove('show');
             }
             
-            // إعادة تعيين لعبة الترتيب
             resetPuzzle();
             
-            // إظهار شاشة الترحيب
             document.getElementById('welcomeScreen').style.display = 'flex';
             document.getElementById('playerName').value = '';
             document.getElementById('startButton').disabled = true;
             document.getElementById('startButton').style.opacity = '0.5';
             
-            // إعادة تعيين بطاقات نوع المستخدم
             document.querySelectorAll('.user-type-card').forEach(card => {
                 card.classList.remove('selected');
             });
             
-            // إعادة تعيين السؤال الأول
             document.getElementById('question1').classList.add('active');
         }
 
-        // تهيئة التطبيق
+        // تهيئة التطبيق (الوظيفة تبقى كما هي)
         document.addEventListener('DOMContentLoaded', function() {
-            // ** تم إزالة السطر: localStorage.removeItem('schoolVisionLeaderboard'); **
-            
             createParticles();
             
-            // مراقبة إدخال الاسم
             document.getElementById('playerName').addEventListener('input', checkStartButtonState);
             
-            // تحديث التقدم والنقاط
             updateProgress();
             updateScore();
-            
-            // عند التحميل، تأكد من تحديث لوحة الصدارة لعرض النتائج المحفوظة
-            displayLeaderboard(currentFilter);
         });
     </script>
 </body>
